@@ -1,0 +1,12 @@
+<div class="container mt-5">
+<p><%= @post.id %> 번 질문</p>
+  <p>작성자 : <%= @post.user.username %></p>
+  <p>질문 : <%= @post.title %></p>
+  <p>내용 : <%= @post.content %></p>
+  <p>질문시간 : <%= @post.created_at %></p>
+  <p>수정시간 : <%= @post.updated_at %></p>
+  <a class="btn btn-info" href="/">목록</a>
+  <a class="btn btn-info" href="/posts/<%= @post.id %>/edit">질문수정</a>
+  <a class="btn btn-info" href="/posts/<%= @post.id %>" data-method="delete" data-confirm="정말로 지우시겠어요?">질문삭제</a>
+<!-- #data-method="delete" => 이 버튼을 누르면 html verb "get"이 아니라 "delete" method로 작용-->
+</div>

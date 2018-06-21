@@ -8,7 +8,7 @@
      <h4>질문을 해주세요!</h4>
    </div>
     <form action="/posts" method="post">
-      작성자 : <input type="text" name="username" /><br />
+      <p>작성자 : <%= current_user.username %></p>
       질문 : <input type="text" name="title" /><br />
       내용 : <textarea name="content"></textarea>
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">

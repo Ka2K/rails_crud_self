@@ -1,13 +1,26 @@
 Rails.application.routes.draw do
+  get 'users/index'
+
+  get '/signup' => 'users#new'
+
+  post 'users' => 'users#create'
+
+  get '/login' => 'users#login'
+  post '/loginprocess' => 'users#loginprocess'
+  get '/logout' => 'users#logout'
+  get '/users/:id/posts' => 'users#posts'
+  #========================================================================
   root 'posts#index'
-  get 'posts/index'
+  get 'posts' => 'posts#index'
+  #http method "get" 을 보면 보여주기 위함임을 알 수 있다.
 
   get 'posts/new'
 
   post 'posts' => 'posts#create'
+  #http method "post" 를 보면 보내기위함 을 알수있따
 
-  get 'posts/view'
-  get 'posts/:id' => 'posts#view'
+  get 'posts/show'
+  get 'posts/:id' => 'posts#show'
 
   get 'posts/:id/edit' => 'posts#edit'
 
@@ -15,7 +28,9 @@ Rails.application.routes.draw do
   # http method "put"은 유저가 서버로 보낸 데이터를 수정할 때 사용한다.
 
   delete 'posts/:id' => 'posts#destroy'
+  # posts에서 약속을 다 지켰다면 위에 거를 다 주석처리하고 resources :posts를 해도 동일하게 처리된다.
 
+  #========================================================================
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -23,7 +38,7 @@ Rails.application.routes.draw do
   # root 'welcome#index'
 
   # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
+  #   get 'products/:id' => 'catalog#show'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
