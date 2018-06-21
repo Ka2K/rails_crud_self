@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row justify-content-center text-center">
+   <div class="col-4">
+    <h1>ASKED</h1>
+  </div>
+ </div>
+   <div class="col-4 bg-info text-center text-white">
+     <h4>질문을 해주세요!</h4>
+   </div>
+    <form action="/posts" method="post">
+      작성자 : <input type="text" name="username" /><br />
+      질문 : <input type="text" name="title" /><br />
+      내용 : <textarea name="content"></textarea>
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <input type="submit" value="궁금해요!" />
+</form>
